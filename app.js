@@ -43,6 +43,6 @@ mongoose
   });
 
 app.listen(process.env.PORT || 3000, () => {
-  var port = server.address().port;
-  console.log('server is running on port:' + port);
+  
+  console.log('server is running on port');
 });
