@@ -58,7 +58,7 @@ app.use(`${api}/orders`, ordersRoutes);
 
 const connectDB = async () => {
 try {
-    const conn = await mongoose.connect(process.env.CONNECTION_STRING, , {
+    const conn = await mongoose.connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
      dbName: 'reactNativeEshop',
