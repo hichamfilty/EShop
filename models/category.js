@@ -16,7 +16,7 @@ categorySchema.virtual('id').get(function () {
   return this._id.toHexString();
 });
 
-userSchema.set('toJSON', {
+categorySchema.set('toJSON', {
   virtuals: true,
 });
 
