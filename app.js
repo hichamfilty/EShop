@@ -56,41 +56,23 @@ app.use(`${api}/products`, productsRoutes);
 app.use(`${api}/users`, usersRoutes);
 app.use(`${api}/orders`, ordersRoutes);
 
-const connectDB = async () => {
-try {
-    const conn = await mongoose.connect(process.env.CONNECTION_STRING, {
+
+
+mongoose
+  .connect(process.env.CONNECTION_STRING, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-     dbName: 'reactNativeEshop',
-   });
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
-  } catch (error) {
-    console.log(error);
-    process.exit(1);
-  }
-}
+    dbName: 'reactNativeEshop',
+  })
+  .then(() => {
+    console.log('Db-Database Connection is ready...');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
-// mongoose
-//   .connect(process.env.CONNECTION_STRING, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     dbName: 'reactNativeEshop',
-//   })
-//   .then(() => {
-//     console.log('Db-Database Connection is ready...');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
 
-//Connect to the database before listening
 
-connectDB().then(() => {
-    app.listen(process.env.PORT || 3000, () => {
-        console.log("listening for requests");
-    })
-})
-
-// app.listen(process.env.PORT || 3000, () => {
-//   console.log('server is running on port');
-// });
+app.listen(process.env.PORT || 3000, () => {
+  console.log('server is running on port');
+});
