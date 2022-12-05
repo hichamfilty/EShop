@@ -12,7 +12,7 @@ const categorySchema = mongoose.Schema({
     type: String,
   },
 });
-userSchema.virtual('id').get(function () {
+categorySchema.virtual('id').get(function () {
   return this._id.toHexString();
 });
 
